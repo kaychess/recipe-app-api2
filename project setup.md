@@ -246,6 +246,9 @@ Install and initiate in your project
 # npm init -y
 ```
 
+> Note :
+> npm semantic-release modules, when installing bind with the repo name. If you changed the repo name or repository you need to reinstall the semantic-release modules.
+
 ```bash
 # Install semantic-release
 npm install --save-dev semantic-release               \
