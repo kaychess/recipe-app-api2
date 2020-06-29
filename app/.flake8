@@ -1,0 +1,9 @@
+[flake8]
+; exclude rules
+; django uses 100 character limit. but PEP guideline: 79 is character limit.
+; upto to you follow which ever makes sense.
+exclude =
+	migrations,
+	__pycache__,
+	manage.py,
+    settings.py

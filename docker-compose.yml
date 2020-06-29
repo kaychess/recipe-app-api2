@@ -1,0 +1,32 @@
+version: "3.1"
+
+services:
+  # Note : if building in docker compose - creates a docker image with name : root
+  # folder name appended with '_' and service name
+  # eg: if used root folder name 'pine' docker-compose service name 'apple' :
+  # then creates the docker image with name pine_apple
+
+  # Name of docker compose service
+  app:
+    # build section of configuration
+    build:
+      # sets the current directory (where docker-compose.yml file resides)
+      # as context - this uses Dockerfile to build
+      context: .
+
+    ports:
+      # Mapping ports : 8000 on host to 8000 on image
+      - "8000:8000"
+
+    volumes:
+      # binding current local app directory to app directory in image
+      - ./app:/app
+
+    # '>' to type commands in multiple lines
+    # note one indent at the beginning for each command.
+    #
+    # Using shell sh, run command -c, " .... "
+    # runs Django server on all ip addresses available in image - 0.0.0.0
+    # at port 8000
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"

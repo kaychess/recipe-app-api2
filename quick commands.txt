@@ -1,0 +1,6 @@
+# runs django admin startproject to create new project called app
+# at the working directory set in docker compose service
+docker-compose run app sh -c "django-admin.py startproject app ."
+
+
+
