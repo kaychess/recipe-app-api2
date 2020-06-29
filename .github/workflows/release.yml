@@ -23,6 +23,9 @@ jobs:
         run: echo "::set-env name=NODE_PATH::$GITHUB_WORKSPACE/node_modules"
       # Now the commitlint action will run considering its own dependencies and yours as well 🚀
       - uses: wagoid/commitlint-github-action@v1
+      - uses: ./
+        with:
+          configFile: "./.commitlint.config.js"
   release:
     name: Release
     needs: lint
