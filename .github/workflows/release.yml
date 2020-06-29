@@ -28,7 +28,7 @@ jobs:
   #         configFile: "./.commitlint.config.js"
   release:
     name: Release
-    needs: lint
+    # needs: lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
