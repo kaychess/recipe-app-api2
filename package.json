@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kaychess/recipe-app-api.git"
+    "url": "git+https://github.com/kaychess/recipe-app-api2.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kaychess/recipe-app-api/issues"
+    "url": "https://github.com/kaychess/recipe-app-api2/issues"
   },
-  "homepage": "https://github.com/kaychess/recipe-app-api#readme",
+  "homepage": "https://github.com/kaychess/recipe-app-api2#readme",
   "devDependencies": {
     "@commitlint/cli": "^9.0.1",
     "@commitlint/config-conventional": "^9.0.1",

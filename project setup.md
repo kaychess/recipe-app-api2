@@ -68,14 +68,14 @@ Install and initiate in your project
 npm init -y
 ```
 
-### Setting up Commitlint
+### #Setting up Commitlint
 
 ```bash
 # install commitlint
 npm install --save-dev @commitlint/cli
 ```
 
-### Setting up Husky
+### #Setting up Husky
 
 ```bash
 # Install Husky
@@ -230,11 +230,12 @@ Execute only when you want to test semantic release removing all other installed
 # Sanitizing.
 # Pay attention :::::: This will remove all the files
 
-rm -rf env/ node_modules/ package.json package-lock.json .releaserc .github/workflows/release.yml
+rm -rf  .releaserc .github/workflows/release.yml
+# env/ node_modules/ package.json package-lock.json
 
-nodeenv env
+#nodeenv env
 
-. env/bin/activate
+#. env/bin/activate
 ```
 
 if you did not setup the node.
@@ -242,7 +243,7 @@ Install and initiate in your project
 
 ```bash
 # Initiating node
-npm init -y
+# npm init -y
 ```
 
 ```bash
