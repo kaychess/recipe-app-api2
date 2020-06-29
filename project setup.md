@@ -60,7 +60,7 @@ nodeenv env
 . env/bin/activate
 ```
 
-if you did not setup the node.
+#if you did not setup the node.
 Install and initiate in your project
 
 ```bash
@@ -103,7 +103,7 @@ npm install --save-dev commitizen
 # install commitiquette
 # Used to make commitizen use commitlint
 # configurations.
-npm install commitiquette --save-dev
+npm install commitiquette  --save-dev
 
 ```
 
@@ -118,6 +118,14 @@ prompt directly when run 'git commit' command. This is inlines with workflow muc
       "path": "commitiquette"
     }
   }
+
+```
+
+Now for triggering commitizen for git commit command.
+in husky hooks add
+
+```
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
 
 ```
 
@@ -137,20 +145,24 @@ echo "module.exports = {extends: ['@commitlint/config-conventional']};" > commit
 
 Add support for Travis CI Checks
 
+-- We are not using travis CI. We migrated to use github actions for commit message linting. So in the end of this file provided how to add git hub actions commit message linting.
+
 ```bash
 # Install and configure if needed
-npm install --save-dev @commitlint/travis-cli
+
+#npm install --save-dev @commitlint/travis-cli
 ```
 
 Configure Travis CI setup
 
 ```yml
 # travis.yml
-language: node_js
-node_js:
-  - node
-script:
-  - commitlint-travis
+
+#language: node_js
+#node_js:
+#  - node
+#script:
+#  - commitlint-travis
 ```
 
 hint : For multiple languages try travis matrix.
@@ -260,6 +272,11 @@ npm install --save-dev semantic-release               \
 ```
 
 Create a `.releaserc` File with following configuration
+
+```bash
+# if using Mac
+# touch .releaserc
+```
 
 ```
 {
@@ -372,6 +389,12 @@ Note:
 - In future if you intend to do some advanced stuff try [this git hub actions published](https://github.com/marketplace/actions/action-for-semantic-release).
 - kind of same as above but got some output features [link](https://github.com/marketplace/actions/semantic-release-action#outputs)
 
+```bash
+# if using Mac
+# touch .github/workflows/release.yml
+
+```
+
 ```yml
 # .github/workflows/release.yml
 name: Release
@@ -399,3 +422,79 @@ jobs:
 ```
 
 > Note : try for demonstration we used `SEMANTIC_RELEASE_SECRET` try changing it to `[PROJECT_NAME]_TOKEN` this lets you identify which tokens are being used in which project.
+
+For Using commit lint configuration in git actions is as follows
+
+```yaml
+name: Commit Lint
+on:
+  push:
+    branches:
+      - master
+jobs:
+  lint:
+    name: Commit Lint
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.RECIPE_APP_API2_SECRET }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "10.x"
+      - run: npm install
+      - name: Add dependencies for commitlint action
+        # $GITHUB_WORKSPACE is the path to your repository
+        run: echo "::set-env name=NODE_PATH::$GITHUB_WORKSPACE/node_modules"
+      # Now the commitlint action will run considering its own dependencies and yours as well 🚀
+      - uses: wagoid/commitlint-github-action@v1
+```
+
+For a combined case with semantic versioning
+
+```yaml
+# .github/workflows/release.yml
+name: Release
+on:
+  push:
+    branches:
+      - master
+jobs:
+  lint:
+    name: Commit Lint
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.RECIPE_APP_API2_SECRET }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "10.x"
+      - run: npm install
+      - name: Add dependencies for commitlint action
+        # $GITHUB_WORKSPACE is the path to your repository
+        run: echo "::set-env name=NODE_PATH::$GITHUB_WORKSPACE/node_modules"
+      # Now the commitlint action will run considering its own dependencies and yours as well 🚀
+      - uses: wagoid/commitlint-github-action@v1
+  release:
+    name: Release
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Install dependencies
+        run: npm ci
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.RECIPE_APP_API2_SECRET }}
+        run: npx semantic-release
+```
