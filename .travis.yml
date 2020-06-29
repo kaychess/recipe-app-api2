@@ -18,7 +18,7 @@ matrix:
       # telling travis CI what services we are going to use
       services:
         - docker
-      # A script that travis runs before it executes any of automation commands defined later here.
+      # script that travis runs before it executes any of automation commands defined later here.
       # We need docker-compose
       before_script: pip install docker-compose
       # Running the script for tests and linting
