@@ -1,5 +1,15 @@
 # Semantic Versioning Changelog
 
+# 1.0.0 (2020-06-29)
+
+
+### Bug Fixes
+
+* init ([599f775](https://github.com/kaychess/recipe-app-api2/commit/599f7759c32d11713ab9f6227d7d5c06bf2269de))
+* initial commit ([77483c7](https://github.com/kaychess/recipe-app-api2/commit/77483c7fc4c30ae2baf25d5e2486df1b881e28b5))
+* testing semantic versioning ([3cd8736](https://github.com/kaychess/recipe-app-api2/commit/3cd873661906d47e2be19c2cdf09ec1ac38924ae))
+* testing semantic versioning ([8ed51fb](https://github.com/kaychess/recipe-app-api2/commit/8ed51fb1f0ec7af7f44ffd92b9e8b34003613e94))
+
 # [3.0.0](https://github.com/kaychess/recipe-app-api/compare/v2.0.1...v3.0.0) (2020-06-29)
 
 
