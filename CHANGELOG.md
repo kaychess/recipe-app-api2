@@ -1,5 +1,17 @@
 # Semantic Versioning Changelog
 
+# [2.0.0](https://github.com/kaychess/recipe-app-api2/compare/v1.0.0...v2.0.0) (2020-06-29)
+
+
+### Build System
+
+* change commit message lint and semantic release to git actions ([8617a20](https://github.com/kaychess/recipe-app-api2/commit/8617a20f9fd392cfa086eaa3fc411071eab2b53d))
+
+
+### BREAKING CHANGES
+
+* git actions would take care of commit message linting rather to travis CI
+
 # 1.0.0 (2020-06-29)
 
 
