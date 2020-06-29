@@ -302,7 +302,9 @@ Create a `.releaserc` File with following configuration
 
 -> go to Github.com
 
--> Top Right Corner Settings
+-> Top Right Corner
+
+-> Settings
 
 -> Developer Settings
 
@@ -310,7 +312,7 @@ Create a `.releaserc` File with following configuration
 
 -> generate
 
-Check the following
+Note : Check the following scopes for the token
 
 - [ ] repo:status
 - [ ] repo_deployment
