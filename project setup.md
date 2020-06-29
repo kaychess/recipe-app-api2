@@ -353,7 +353,7 @@ Goto
 
 -> new secret
 
-Try using name as `SEMANTIC_RELEASE_SECRET` Or as required. Copy the personal token you generated in above section creating a github token.
+Try using name as `[PROJECT_NAME]_TOKEN` Or as required. Copy the personal token you generated in above section creating a github token.
 
 ### Configuring Git Actions for semantic release.
 
@@ -363,7 +363,7 @@ Configure the git actions in `.github/workflows/release.yml`
 
 Note:
 
-- For GITHUB_TOKEN use the secret name you had configured if you did not named it `SEMANTIC_RELEASE_SECRET`
+- For GITHUB_TOKEN use the secret name you had configured if you did not named it `SEMANTIC_RELEASE_SECRET` or try to stick to `[PROJECT_NAME]_TOKEN`
 
 - We are not using any npm publishing. if thats the intent, its not covered here. you need to check the official [semantic release site](https://semantic-release.gitbook.io/semantic-release/) the tutorial there is pretty straight forward to do so. You must specify this line in semantic release configuration file
   `[ "@semantic-release/npm", { "npmPublish": false } ],`
@@ -397,3 +397,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_SECRET }}
         run: npx semantic-release
 ```
+
+> Note : try for demonstration we used `SEMANTIC_RELEASE_SECRET` try changing it to `[PROJECT_NAME]_TOKEN` this lets you identify which tokens are being used in which project.
