@@ -1,5 +1,12 @@
 # Semantic Versioning Changelog
 
+# [3.1.0](https://github.com/kaychess/recipe-app-api2/compare/v3.0.0...v3.1.0) (2020-06-29)
+
+
+### Features
+
+* **models:** added custom user model ([314be46](https://github.com/kaychess/recipe-app-api2/commit/314be46c8fc6016b7311eed5609d3ff4bbaa782a))
+
 # [3.0.0](https://github.com/kaychess/recipe-app-api2/compare/v2.0.0...v3.0.0) (2020-06-29)
 
 
