@@ -1,31 +1,31 @@
-# # travis.yml
-# matrix:
-#   include:
-#     - language: node_js
-#       node_js:
-#         - node
-#       script:
-#         - npm install --save-dev
-#         - commitlint-travis
+# travis.yml
+matrix:
+  include:
+    - language: node_js
+      node_js:
+        - node
+      script:
+        - npm install --save-dev
+        - commitlint-travis
 
-# Using Python : To build the Docker and run Django app.
-- language: python
-  # The python version that we need to use.
-  # it has to be available in travis channel
-  # but we are using docker's python no need to worry about this.
-  python:
-    - "3.8"
-  # telling travis CI what services we are going to use
-  services:
-    - docker
-  # script that travis runs before it executes any of automation commands defined later here.
-  # We need docker-compose
-  before_script: pip install docker-compose
-  # Running the script for tests and linting
-  script:
-    - docker-compose run app sh -c "python manage.py test && flake8"
-  # when ever a change in git is detected.
-  # So spins a travis python server of version 3.8
-  # makes service docker available.
-  # runs a before script. i.e. to install docker compose
-  # then runs the script i.e performs tests and checks for linting.
+    # Using Python : To build the Docker and run Django app.
+    - language: python
+      # The python version that we need to use.
+      # it has to be available in travis channel
+      # but we are using docker's python no need to worry about this.
+      python:
+        - "3.8"
+      # telling travis CI what services we are going to use
+      services:
+        - docker
+      # A script that travis runs before it executes any of automation commands defined later here.
+      # We need docker-compose
+      before_script: pip install docker-compose
+      # Running the script for tests and linting
+      script:
+        - docker-compose run app sh -c "python manage.py test && flake8"
+      # when ever a change in git is detected.
+      # So spins a travis python server of version 3.8
+      # makes service docker available.
+      # runs a before script. i.e. to install docker compose
+      # then runs the script i.e performs tests and checks for linting.
