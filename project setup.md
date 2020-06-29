@@ -5,6 +5,15 @@ Create modular sections. for installing node.
 
 Tools Used :
 
+### GuideLines :
+
+To get the full benefits of documentation
+Use VsCode with following extensions.
+
+1. Bluloco Dark theme
+2. Better Comments
+3. Commint, Commitizen, Commitiquette for commit messages
+
 - [Git](https://github.com)
 - [node](https://nodejs.org/en/)
 - [Commitzen](http://commitizen.github.io/cz-cli/#making-your-repo-commitizen-friendly)

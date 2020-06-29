@@ -8,6 +8,8 @@
         "plaintext",
         "dockerfile",
         "yaml",
-        "javascript"
+        "javascript",
+        "python",
+        "jsonc"
     ]
 }
