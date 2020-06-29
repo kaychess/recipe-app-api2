@@ -1,5 +1,5 @@
 FROM python:3.8-alpine
-# MenuRoma is the maintainer of the project and image.
+# MenuRoma is the maintainer of the Project and image.
 LABEL maintainer="MenuRoma"
 
 # * Environment variable setup in docker image.
